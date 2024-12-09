@@ -1,21 +1,138 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FMorschel Portfolio</title>
+  <title>Work in Progress - FMorschel.dev</title>
+  <link rel="icon" href="2048.png" type="image/png">
   <style>
-    IMG.displayed {
-      display: block;
-      margin-left: auto;
-      margin-right: auto 
+    body {
+      margin: 0;
+      padding: 20px;
+      /* Added padding */
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #252525;
+      color: #00FF99;
+      text-align: center;
+      box-sizing: border-box;
+      /* Ensure padding is included in the height */
+    }
+
+    .container {
+      max-width: 600px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+      transition: transform 2s ease-in-out;
+      /* Add transition for smooth animation */
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotateY(0deg);
+      }
+
+      25% {
+        transform: rotateY(90deg);
+      }
+
+      26% {
+        transform: rotateY(270deg);
+      }
+
+      100% {
+        transform: rotateY(360deg);
+      }
+    }
+
+    @keyframes ellipsis {
+      0% {
+        content: '';
+      }
+
+      33% {
+        content: '.';
+      }
+
+      66% {
+        content: '..';
+      }
+
+      100% {
+        content: '...';
+      }
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #D3D3D3;
+    }
+
+    .ellipsis {
+      display: inline-block;
+      width: 1em;
+      /* Fixed width to prevent text shifting */
+      text-align: left;
+    }
+
+    .ellipsis::after {
+      content: '';
+      animation: ellipsis 1s steps(4, end) infinite;
+    }
+
+    p {
+      font-size: 1.2em;
+      color: #D3D3D3;
     }
   </style>
 </head>
+
 <body>
-  <h1>Portifolio</h1>
-  <h2>Titulo 2</h2>
-  <img class="displayed" src="https://user-images.githubusercontent.com/52160996/117887680-78af1000-b287-11eb-9176-fe306baf4190.png">
+  <div class="container">
+    <img id="logo" src="Transparente.png" alt="FMorschel Logo">
+    <h1>Work in Progress<span class="ellipsis"></span></h1>
+    <p>fmorschel.dev is currently under development. Stay tuned for updates!</p>
+  </div>
+  <script>
+    const logo = document.getElementById('logo');
+    let isAnimating = false;
+
+    function startAnimation() {
+      if (!isAnimating) {
+        isAnimating = true;
+        logo.style.transition = 'transform 0.5s ease-in-out';
+        logo.style.transform = 'rotateY(90deg)';
+        setTimeout(() => {
+          logo.style.transition = 'none';
+          logo.style.transform = 'rotateY(270deg)';
+          setTimeout(() => {
+            logo.style.transition = 'transform 0.5s ease-in-out';
+            logo.style.transform = 'rotateY(360deg)';
+          }, 50);
+        }, 500);
+      }
+    }
+
+    logo.addEventListener('mouseenter', startAnimation);
+    logo.addEventListener('touchstart', startAnimation);
+
+    logo.addEventListener('transitionend', () => {
+      if (logo.style.transform === 'rotateY(360deg)') {
+        logo.style.transition = 'none';
+        logo.style.transform = 'rotateY(0deg)';
+        isAnimating = false;
+      }
+    });
+  </script>
 </body>
+
 </html>
