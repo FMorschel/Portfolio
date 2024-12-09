@@ -10,7 +10,6 @@
     body {
       margin: 0;
       padding: 20px;
-      /* Added padding */
       font-family: Arial, sans-serif;
       display: flex;
       justify-content: center;
@@ -20,19 +19,27 @@
       color: #00FF99;
       text-align: center;
       box-sizing: border-box;
-      /* Ensure padding is included in the height */
     }
 
     .container {
-      max-width: 600px;
+      text-align: center;
+    }
+
+    .text-container {
+      display: inline-block;
+      text-align: center;
     }
 
     img {
+      width: auto;
       max-width: 100%;
       height: auto;
+      max-height: 60svh;
       margin-bottom: 20px;
+      margin-top: 20px;
       transition: transform 2s ease-in-out;
-      /* Add transition for smooth animation */
+      object-fit: scale-down;
+      object-position: top;
     }
 
     @keyframes rotate {
@@ -80,7 +87,6 @@
     .ellipsis {
       display: inline-block;
       width: 1em;
-      /* Fixed width to prevent text shifting */
       text-align: left;
     }
 
@@ -98,9 +104,11 @@
 
 <body>
   <div class="container">
-    <img id="logo" src="Transparente.png" alt="FMorschel Logo">
-    <h1>Work in Progress<span class="ellipsis"></span></h1>
-    <p>fmorschel.dev is currently under development. Stay tuned for updates!</p>
+    <div class="text-container">
+      <img id="logo" src="Transparente.png" alt="FMorschel Logo">
+      <h1>Work in Progress<span class="ellipsis"></span></h1>
+      <p>fmorschel.dev is currently under development. Stay tuned for updates!</p>
+    </div>
   </div>
   <script>
     const logo = document.getElementById('logo');
