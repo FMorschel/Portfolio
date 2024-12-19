@@ -3,34 +3,44 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Work in Progress - FMorschel.dev</title>
+  <title>FMorschel Portfolio</title>
   <link rel="icon" href="icon.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=graph_1" />
   <style>
-    body {
+    * {
       margin: 0;
-      padding: 20px;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #252525;
-      color: #00FF99;
-      text-align: center;
+      padding: 0;
       box-sizing: border-box;
     }
 
-    .container {
-      text-align: center;
+    html, body {
+      scroll-behavior: smooth;
+      /* overflow: hidden; */
+    }
+  
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #252525;
+      color: #D0D0D0;
+      line-height: 1.6;
+      font-weight: 600;
+      overflow-y: scroll;
     }
 
-    .text-container {
-      display: inline-block;
-      text-align: center;
+    p {
+      font-size: 1.3em;
     }
 
-    img {
+    header {
+      text-align: center;
+      padding: 50px 20px;
+    }
+  
+    header img {
       width: auto;
       max-width: 100%;
       height: auto;
@@ -41,75 +51,275 @@
       object-fit: scale-down;
       object-position: top;
     }
-
+  
     @keyframes rotate {
       0% {
         transform: rotateY(0deg);
       }
-
+  
       25% {
         transform: rotateY(90deg);
       }
-
+  
       26% {
         transform: rotateY(270deg);
       }
-
+  
       100% {
         transform: rotateY(360deg);
       }
     }
-
+  
     @keyframes ellipsis {
       0% {
         content: '';
       }
-
+  
       33% {
         content: '.';
       }
-
+  
       66% {
         content: '..';
       }
-
+  
       100% {
         content: '...';
       }
     }
-
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-      color: #D3D3D3;
+  
+    header h1 {
+      margin: 100px 0 10px;
+      font-size: 3em;
+      color: #FFFFFF;
     }
-
-    .ellipsis {
-      display: inline-block;
-      width: 1em;
-      text-align: left;
+  
+    header p {
+      font-size: 1.5em;
     }
-
-    .ellipsis::after {
-      content: '';
-      animation: ellipsis 1s steps(4, end) infinite;
+  
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #1e2020;
+      padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-
-    p {
+  
+    nav a {
+      color: #E0E0E0;
+      text-decoration: none;
+      margin: 0 25px;
       font-size: 1.2em;
-      color: #D3D3D3;
+    }
+  
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      display: flex;
+      flex-direction: column;
+      width: 65vw;
+      padding: 0 20px;
+      margin: 0 auto;
+    }
+
+    section:not(#contact) {
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    section#contact {
+      height: 30vh;
+      justify-content: center;
+      vertical-align: bottom;
+      text-align: center;
+      margin: 0 auto 20vh;
+    }
+
+    section h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      color: #FFFFFF;
+    }
+
+    .projects .project {
+      margin-bottom: 30px;
+    }
+  
+    .projects .project h3 {
+      font-size: 2em;
+      color: #FFFFFF;
+    }
+  
+    .projects .project p {
+      font-size: 1.3em;
+    }
+  
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #253535;
+    }
+  
+    footer a {
+      text-decoration: none;
+      font-size: 1.2em;
+    }
+  
+    hr {
+      margin: 60px 0;
+    }
+
+    .section-icon {
+      width: 25vmin;
+      height: 25vmin;
+      border-radius: 50%;
+      margin: 0 0 20px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      font-size: 20vmin;
+    }
+
+    .section-icon i {
+      font-size: inherit;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    a.social {
+      margin: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: #D0D0D0;
+    }
+
+    p#socials {
+      margin: 20px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .section-icon#open-source {
+      transform: rotate(180deg) scaleX(-1);
+      font-size: 20vmin;
+    }
+
+    .material-symbols-outlined {
+      font-size: inherit;
+      font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 48,
+    }
+
+    .contributions {
+      display: flex;
+      flex-direction: row;
+      pointer-events: none;
+    }
+
+    .contributions img {
+        margin: 25px;
+        pointer-events: auto;
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <div class="text-container">
-      <img id="logo" src="transparent.png" alt="FMorschel Logo">
-      <h1>Work in Progress<span class="ellipsis"></span></h1>
-      <p>fmorschel.dev is currently under development. Stay tuned for updates!</p>
+  <nav>
+    <a href="#about">About Me</a>
+    <a href="#projects">Open Source</a>
+    <a href="#community">Community</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <header>
+    <img id="logo" src="transparent.png" alt="FMorschel Logo">
+    <p>Open Source Enthusiast & Software Developer</p>
+  </header>
+
+  <section id="about">
+    <img class="section-icon" id="profile" src="profile.jpg" alt="FMorschel Profile Picture">
+    <h2>About Me</h2>
+    <p>Hello! I'm Felipe (FMorschel) Morschel, a passionate Dart 
+      <img src="https://img.shields.io/badge/Dart-0175C2?logo=dart&logoColor=white" alt="Dart Badge" height="20" /> /
+      Flutter 
+      <img src="https://img.shields.io/badge/Flutter-02569B?logo=flutter&logoColor=white" alt="Flutter Badge" height="20" />
+      developer and open-source contributor dedicated to creating clean, efficient, and impactful code.
+    </p>
+    <div class="contributions">
+      <a href="https://github.com/dart-lang/sdk/commits?author=FMorschel" target="_blank">
+        <img src="https://raw.githubusercontent.com/FMorschel/FMorschel/refs/heads/main/badges/dart-commits.svg"
+          alt="Dart Commits">
+      </a>
+      <a href="https://github.com/flutter/flutter/commits?author=FMorschel" target="_blank">
+        <img src="https://raw.githubusercontent.com/FMorschel/FMorschel/refs/heads/main/badges/flutter-commits.svg"
+          alt="Flutter Commits">
+      </a>
     </div>
-  </div>
+  </section>
+
+  <section id="projects">
+    <div id="open-source" class="section-icon"><span class="material-symbols-outlined">
+      graph_1
+    </span></div>
+    <h2>Open Source</h2>
+    <div class="projects">
+      <div class="project">
+        <h3>Due Date</h3>
+        <p>A Dart package for easy date management. <a href="https://pub.dev/packages/due_date" target="_blank">Learn
+            more</a>.</p>
+      </div>
+      <div class="project">
+        <h3>Floating Overlay</h3>
+        <p>A Flutter package for custom overlays. <a href="https://pub.dev/packages/floating_overlay"
+            target="_blank">Learn more</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="community">
+    <div class="section-icon"><i class="material-icons">diversity_3</i></div>
+    <h2>Community</h2>
+    <p>I enjoy giving back to the community through teaching and open source contributions. You can find me on GitHub, 
+      where I contribute to the Dart SDK, maintain my own packages, and work on other projects.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Feel free to reach out and be sure to follow me!</p>
+    <p id="socials">
+      <a class="social" href="https://x.com/fmorschel_dev" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a class="social" href="mailto:me@fmorschel.dev"><i class="material-icons">mail</i></a>
+      <a class="social" href="https://github.com/FMorschel" target="_blank"><i class="fab fa-github"></i></a>
+      <a class="social" href="https://discordapp.com/users/FMorschel" target="_blank"><i class="fab fa-discord"></i></a>
+      <a class="social" href="https://bsky.app/profile/fmorschel.dev" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="rgb(208, 208, 208)" viewBox="0 0 320 286" width="22" height="22">
+          <path fill="rgb(208, 208, 208)"
+            d="M69.364 19.146c36.687 27.806 76.147 84.186 90.636 114.439 14.489-30.253 53.948-86.633 90.636-114.439C277.107-.917 320-16.44 320 32.957c0 9.865-5.603 82.875-8.889 94.729-11.423 41.208-53.045 51.719-90.071 45.357 64.719 11.12 81.182 47.953 45.627 84.785-80 82.874-106.667-44.333-106.667-44.333s-26.667 127.207-106.667 44.333c-35.555-36.832-19.092-73.665 45.627-84.785-37.026 6.362-78.648-4.149-90.071-45.357C5.603 115.832 0 42.822 0 32.957 0-16.44 42.893-.917 69.364 19.147Z" />
+        </svg>
+      </a>
+      <a class="social" href="https://www.instagram.com/fmorschel.dev" target="_blank"><i class="fab fa-instagram"></i></a>
+    </p>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 FMorschel. Built with passion and code.</p>
+  </footer>
   <script>
     const logo = document.getElementById('logo');
     let isAnimating = false;
@@ -139,6 +349,15 @@
         logo.style.transform = 'rotateY(0deg)';
         isAnimating = false;
       }
+    });
+
+    document.addEventListener("wheel", (event) => {
+      if (event.deltaY > 0) {
+        document.body.scrollBy({ top: window.innerHeight, behavior: "smooth" });
+      } else {
+        document.body.scrollBy({ top: -window.innerHeight, behavior: "smooth" });
+      }
+      event.preventDefault();
     });
   </script>
 </body>
